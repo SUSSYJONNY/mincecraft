@@ -24,8 +24,8 @@ function player_update() {
 function new_image(get_image) {
     fabric.Image.fromURL(get_image, function (Img) {
         block_image_object = Img;
-        block_image_object.scaleToHeight(140);
-        block_image_object.scaleToWidth(150);
+        block_image_object.scaleToHeight(block_image_height);
+        block_image_object.scaleToWidth(block_image_width);
         block_image_object.set({
             top: player_y, left: player_x
 
@@ -58,5 +58,107 @@ function my_keyown(e) {
             console.log("tamanho minimo alcançado")
 
         }
+    }
+    if (keyPressed == '38') {
+        up();
+        console.log("cima")
+    }
+    if (keyPressed == '40') {
+        down();
+        console.log("baixo")
+    }
+    if (keyPressed == '37') {
+        left();
+        console.log("esquerda")
+    }
+    if (keyPressed == '39') {
+        right();
+        console.log("direita")
+    }
+    if (keyPressed == '80') {
+        new_image('wall.png');
+        console.log("p");
+    }
+
+    if (keyPressed == '80') {
+        new_image('wall.png');
+        console.log("p");
+    }
+
+    if (keyPressed == '71') {
+        new_image('ground.png');
+        console.log("g");
+    }
+
+    if (keyPressed == '86') {
+        new_image('light_green.png');
+        console.log("v");
+    }
+
+    if (keyPressed == '77') {
+        new_image('trunk.jpg');
+        console.log("m");
+    }
+
+    if (keyPressed == '84') {
+        new_image('roof.jpg');
+        console.log("t");
+    }
+
+    if (keyPressed == '65') {
+        new_image('yellow_wall.png');
+        console.log("a");
+    }
+
+    if (keyPressed == '69') {
+        new_image('dark_green.png');
+        console.log("e");
+    }
+
+    if (keyPressed == '85') {
+        new_image('unique.png');
+        console.log("u");
+    }
+
+    if (keyPressed == '78') {
+        new_image('cloud.jpg');
+        console.log("n");
+    }
+}
+
+function up() {
+    if (player_y >= 0) {
+        player_y = player_y - block_image_height;
+        console.log("altura da imagem do bloco = " +block_image_height);
+        console.log("quando seta para cima e pressionada = x= " +player_x+ " , y= " +player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+} 
+function down() {
+    if (player_y <= 500) {
+        player_y = player_y + block_image_height;
+        console.log("altura da imagem do bloco = " +block_image_height);
+        console.log("quando seta para baixo e pressionada = x= " +player_x+ " , y= " +player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+} 
+function left() {
+    if (player_x > 0) {
+        player_x = player_x - block_image_width;
+        console.log("largura da imagem do bloco = " +block_image_width);
+        console.log("quando seta para esquerda e pressionada = x= " +player_x+ " , y= " +player_y);
+        canvas.remove(player_object);
+        player_update();
+    }
+} 
+function right() {
+    if (player_x <= 850) {
+        player_x = player_x + block_image_width;
+        console.log("largura da imagem do bloco = " +block_image_width);
+        console.log("quando seta para cima e pressionada = x= " +player_x+ " , y= " +player_y);
+        canvas.remove(player_object);
+        player_update();
     }
 }
